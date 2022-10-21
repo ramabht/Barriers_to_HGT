@@ -1,6 +1,4 @@
 # Barriers_to_HGT
-Analysing fitness data for Salmonella mutants obtained using growth curves and NGS.
-
 This repository describes the analysis performed on fitness data for Salmonella mutants post HGT event.
 
 # Publication:
