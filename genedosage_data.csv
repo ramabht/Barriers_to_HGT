@@ -1,0 +1,49 @@
+gene,env,dd
+b0423,InSPI2,yes
+b0642,InSPI2,yes
+b0695,InSPI2,yes
+b0880,InSPI2,yes
+b0882,InSPI2,no
+b1084,InSPI2,yes
+b1094,InSPI2,yes
+b1763,InSPI2,yes
+b1913,InSPI2,yes
+b2530,InSPI2,yes
+b3164,InSPI2,yes
+b3590,InSPI2,yes
+b0423,InSPI2 Hypoxic,no
+b0642,InSPI2 Hypoxic,yes
+b0695,InSPI2 Hypoxic,no
+b0880,InSPI2 Hypoxic,no
+b0882,InSPI2 Hypoxic,no
+b1084,InSPI2 Hypoxic,no
+b1094,InSPI2 Hypoxic,yes
+b1763,InSPI2 Hypoxic,no
+b1913,InSPI2 Hypoxic,no
+b2530,InSPI2 Hypoxic,no
+b3164,InSPI2 Hypoxic,no
+b3590,InSPI2 Hypoxic,no
+b0423,InSPI2 Ciprofloxacin,yes
+b0642,InSPI2 Ciprofloxacin,yes
+b0695,InSPI2 Ciprofloxacin,yes
+b0880,InSPI2 Ciprofloxacin,yes
+b0882,InSPI2 Ciprofloxacin,no
+b1084,InSPI2 Ciprofloxacin,yes
+b1094,InSPI2 Ciprofloxacin,yes
+b1763,InSPI2 Ciprofloxacin,yes
+b1913,InSPI2 Ciprofloxacin,no
+b2530,InSPI2 Ciprofloxacin,yes
+b3164,InSPI2 Ciprofloxacin,no
+b3590,InSPI2 Ciprofloxacin,yes
+b0423,InSPI2 Low Mg,no
+b0642,InSPI2 Low Mg,yes
+b0695,InSPI2 Low Mg,yes
+b0880,InSPI2 Low Mg,no
+b0882,InSPI2 Low Mg,yes
+b1084,InSPI2 Low Mg,yes
+b1094,InSPI2 Low Mg,yes
+b1763,InSPI2 Low Mg,yes
+b1913,InSPI2 Low Mg,no
+b2530,InSPI2 Low Mg,no
+b3164,InSPI2 Low Mg,no
+b3590,InSPI2 Low Mg,no
