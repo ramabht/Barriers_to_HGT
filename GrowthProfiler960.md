@@ -11,35 +11,14 @@ RP Bhatia
 library(knitr)
 ```
 
-    ## Warning: package 'knitr' was built under R version 4.0.5
-
 ``` r
 library(data.table)
 library(fs)
 ```
 
-    ## Warning: package 'fs' was built under R version 4.0.3
-
 ``` r
 library(dplyr)
 ```
-
-    ## Warning: package 'dplyr' was built under R version 4.0.3
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:data.table':
-    ## 
-    ##     between, first, last
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
 
 # Calculating growth rates from log linear part of the growth curve using linear regression
 
@@ -109,7 +88,7 @@ for (i in 1:length(file_contents2)) {
       x = (OD>=0.05)&(OD<=0.18)
       mins = c(((which(x==1))*20)-20)
       line = lm(lnOD~mins) #applies regression analysis
-      #GR_a[i] = summary(line)$coefficients[2,1] # write slope in a
+      GR_a[i] = summary(line)$coefficients[2,1] # write slope in a
       GR_b[j] = summary(line)$coefficients[1,1] # write intercept in b
       GR_R[j] = summary(line)[8]# write regression coefficient in R
       if (dim(summary(line)$coefficients)[[1]]==1){
@@ -134,15 +113,6 @@ for (i in 1:length(file_contents2)) {
 }
 ```
 
-    ## Warning in log(file_contents2[[i]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents2[[i]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents2[[i]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents2[[i]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents2[[i]][, j + 1]): NaNs produced
 
 # For Plate 9 only
 
@@ -195,38 +165,3 @@ for (i in 1:length(file_contents)) {
 }
 ```
 
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
-
-    ## Warning in log(file_contents[[9]][, j + 1]): NaNs produced
