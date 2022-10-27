@@ -3,7 +3,7 @@ Evolbarriers
 RP Bhatia
 16 September 2022
 
-# data analysis performed in paper "Evolutionary barriers to horizontal gene transfer in macrophage associated Salmonella" doi: <https://doi.org/10.1101/2022.04.01.486712>
+# Data analysis performed in paper "Evolutionary barriers to horizontal gene transfer in macrophage associated Salmonella" doi: <https://doi.org/10.1101/2022.04.01.486712>
 
 # library load
 
@@ -12,150 +12,49 @@ library(reshape)
 library(reshape2)
 ```
 
-    ## 
-    ## Attaching package: 'reshape2'
-
-    ## The following objects are masked from 'package:reshape':
-    ## 
-    ##     colsplit, melt, recast
-
 ``` r
 library(plyr)
 ```
 
-    ## 
-    ## Attaching package: 'plyr'
-
-    ## The following objects are masked from 'package:reshape':
-    ## 
-    ##     rename, round_any
-
 ``` r
 library(dplyr)
 ```
-
-    ## Warning: package 'dplyr' was built under R version 4.0.3
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:plyr':
-    ## 
-    ##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-    ##     summarize
-
-    ## The following object is masked from 'package:reshape':
-    ## 
-    ##     rename
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
 
 ``` r
 library(broom)
 library(tidyr)
 ```
 
-    ## 
-    ## Attaching package: 'tidyr'
-
-    ## The following object is masked from 'package:reshape2':
-    ## 
-    ##     smiths
-
-    ## The following objects are masked from 'package:reshape':
-    ## 
-    ##     expand, smiths
-
 ``` r
 library(gapminder)
 library(tidyverse)
 ```
-
-    ## Warning: package 'tidyverse' was built under R version 4.0.3
-
-    ## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
-
-    ## v ggplot2 3.3.3     v purrr   0.3.4
-    ## v tibble  3.0.6     v stringr 1.4.0
-    ## v readr   1.4.0     v forcats 0.5.1
-
-    ## Warning: package 'ggplot2' was built under R version 4.0.4
-
-    ## Warning: package 'tibble' was built under R version 4.0.3
-
-    ## Warning: package 'readr' was built under R version 4.0.3
-
-    ## Warning: package 'forcats' was built under R version 4.0.3
-
-    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-    ## x dplyr::arrange()   masks plyr::arrange()
-    ## x purrr::compact()   masks plyr::compact()
-    ## x dplyr::count()     masks plyr::count()
-    ## x tidyr::expand()    masks reshape::expand()
-    ## x dplyr::failwith()  masks plyr::failwith()
-    ## x dplyr::filter()    masks stats::filter()
-    ## x dplyr::id()        masks plyr::id()
-    ## x dplyr::lag()       masks stats::lag()
-    ## x dplyr::mutate()    masks plyr::mutate()
-    ## x dplyr::rename()    masks plyr::rename(), reshape::rename()
-    ## x dplyr::summarise() masks plyr::summarise()
-    ## x dplyr::summarize() masks plyr::summarize()
 
 ``` r
 library(ggplot2)
 library(ggforce)
 ```
 
-    ## Warning: package 'ggforce' was built under R version 4.0.3
-
 ``` r
 library(gridExtra)
 ```
-
-    ## 
-    ## Attaching package: 'gridExtra'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     combine
 
 ``` r
 library(ggpubr)
 ```
 
-    ## Warning: package 'ggpubr' was built under R version 4.0.4
-
-    ## 
-    ## Attaching package: 'ggpubr'
-
-    ## The following object is masked from 'package:plyr':
-    ## 
-    ##     mutate
-
 ``` r
 library(viridis)
 ```
-
-    ## Loading required package: viridisLite
 
 ``` r
 library(ggsignif)
 ```
 
-    ## Warning: package 'ggsignif' was built under R version 4.0.4
-
 ``` r
 library(hrbrthemes)
 library(knitr)
 ```
-
-    ## Warning: package 'knitr' was built under R version 4.0.5
 
 ``` r
 library(wesanderson)
@@ -163,82 +62,22 @@ library(RColorBrewer)
 library(paletteer)
 ```
 
-    ## Warning: package 'paletteer' was built under R version 4.0.5
-
 ``` r
 library(scales)
 ```
-
-    ## 
-    ## Attaching package: 'scales'
-
-    ## The following object is masked from 'package:viridis':
-    ## 
-    ##     viridis_pal
-
-    ## The following object is masked from 'package:purrr':
-    ## 
-    ##     discard
-
-    ## The following object is masked from 'package:readr':
-    ## 
-    ##     col_factor
 
 ``` r
 library(tsiMisc)
 library(MASS)
 ```
 
-    ## 
-    ## Attaching package: 'MASS'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     select
-
 ``` r
 library(EnvStats)
 ```
 
-    ## Warning: package 'EnvStats' was built under R version 4.0.4
-
-    ## 
-    ## Attaching package: 'EnvStats'
-
-    ## The following object is masked from 'package:MASS':
-    ## 
-    ##     boxcox
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     predict, predict.lm
-
-    ## The following object is masked from 'package:base':
-    ## 
-    ##     print.default
-
 ``` r
 library(goft)
 ```
-
-    ## Warning: package 'goft' was built under R version 4.0.5
-
-    ## Loading required package: fitdistrplus
-
-    ## Loading required package: survival
-
-    ## Loading required package: sn
-
-    ## Warning: package 'sn' was built under R version 4.0.5
-
-    ## Loading required package: stats4
-
-    ## 
-    ## Attaching package: 'sn'
-
-    ## The following object is masked from 'package:stats':
-    ## 
-    ##     sd
 
 ``` r
 library(paletteer)
@@ -950,15 +789,6 @@ for(i in 1:length(comparisons)){
 }
 ```
 
-    ## Warning in wilcox.test.default(unlist(wrs[2]), unlist(wrs[3]), alternative =
-    ## "two.sided", : cannot compute exact p-value with zeroes
-
-    ## Warning in wilcox.test.default(unlist(wrs[2]), unlist(wrs[3]), alternative =
-    ## "two.sided", : cannot compute exact p-value with zeroes
-
-    ## Warning in wilcox.test.default(unlist(wrs[2]), unlist(wrs[3]), alternative =
-    ## "two.sided", : cannot compute exact p-value with zeroes
-
 ``` r
 wrs_padj = p.adjust(wrs_pval, method = "fdr", n = 6)
 w = data.frame(wrs_padj, row.names = comparisons)
@@ -1000,18 +830,6 @@ for(i in 1:length(comparisons)){
   ks_Dstat[i] = k$statistic
 }
 ```
-
-    ## Warning in ks.test(unlist(ks[2]), unlist(ks[3]), alternative = "two.sided"):
-    ## cannot compute exact p-value with ties
-
-    ## Warning in ks.test(unlist(ks[2]), unlist(ks[3]), alternative = "two.sided"):
-    ## cannot compute exact p-value with ties
-
-    ## Warning in ks.test(unlist(ks[2]), unlist(ks[3]), alternative = "two.sided"):
-    ## cannot compute exact p-value with ties
-
-    ## Warning in ks.test(unlist(ks[2]), unlist(ks[3]), alternative = "two.sided"):
-    ## cannot compute exact p-value with ties
 
 ``` r
 ks_padj = p.adjust(ks_pval, method = "fdr", n = 6)
