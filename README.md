@@ -1,5 +1,5 @@
 # Barriers_to_HGT
-This repository describes the analysis performed on fitness data for Salmonella mutants post HGT event.
+This repository describes the analysis performed on fitness data for Salmonella mutants in infection relevant environments.
 
 # Publication:
 Evolutionary barriers to horizontal gene transfer in macrophage associated Salmonella
