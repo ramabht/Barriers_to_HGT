@@ -139,7 +139,7 @@ for (i in 1:length(file_contents)) {
       x = (OD>=0.05)&(OD<=0.18)
       mins = c(((which(x==1))*20)-20)
       line = lm(lnOD~mins) #applies regression analysis
-      #GR_a[i] = summary(line)$coefficients[2,1] # write slope in a
+      GR_a[i] = summary(line)$coefficients[2,1] # write slope in a
       GR_b[j] = summary(line)$coefficients[1,1] # write intercept in b
       GR_R[j] = summary(line)[8]# write regression coefficient in R
       if (dim(summary(line)$coefficients)[[1]]==1){
