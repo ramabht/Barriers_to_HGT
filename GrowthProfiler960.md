@@ -3,7 +3,7 @@ GrowthProfiler960
 RP Bhatia
 16 September 2022
 
-# Analysis for protein dosage as a barrier to HGT.
+# Analysing growth curves.
 # "Evolutionary barriers to horizontal gene transfer in macrophage associated Salmonella" doi: <https://doi.org/10.1101/2022.04.01.486712>
 
 # library load
