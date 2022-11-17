@@ -464,7 +464,6 @@ bp.lm <- lm(rel_fitness ~ bp, df_dpsq1)
 
 f = ggplot(df_dpsq1, aes(x = bp, y = rel_fitness)) +
   geom_point(size = 1, colour = "springgreen4", shape = 18) +
-  #geom_smooth(method = "lm", se = FALSE, colour = "black", size = 0.5)+
   geom_abline(slope = coef(bp.lm)[["bp"]], 
               intercept = coef(bp.lm)[["(Intercept)"]]) + 
   facet_wrap(~ Env) +
