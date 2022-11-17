@@ -3,7 +3,8 @@ GrowthProfiler960
 RP Bhatia
 16 September 2022
 
-# data analysis performed in paper "Evolutionary barriers to horizontal gene transfer in macrophage associated Salmonella" doi: <https://doi.org/10.1101/2022.04.01.486712>
+# Analysis for protein dosage as a barrier to HGT.
+# "Evolutionary barriers to horizontal gene transfer in macrophage associated Salmonella" doi: <https://doi.org/10.1101/2022.04.01.486712>
 
 # library load
 
@@ -21,6 +22,7 @@ library(dplyr)
 ```
 
 # Calculating growth rates from log linear part of the growth curve using linear regression
+# Analysing plates 1-8
 
 ``` r
 file_path = fs::dir_ls("C:\\Users\\ramab\\Documents\\R\\gene_dosage_new\\GP960\\input_files")
@@ -62,7 +64,7 @@ file_contents2 <- file_contents[-9]
 samples2 <- samples[-9]
 ```
 
-# by using the growth rate best line equation ax+b=y, a is the slope = growth rate, b is the intercept, and R is the regression coefficient
+# linear equation ax+b=y, a is the slope = growth rate, b is the intercept, and R is the regression coefficient
 
 ``` r
 line=list()
@@ -114,7 +116,7 @@ for (i in 1:length(file_contents2)) {
 ```
 
 
-# For Plate 9 only
+# Analysing plate 9
 
 ``` r
 GR_a = rep(0,100)
