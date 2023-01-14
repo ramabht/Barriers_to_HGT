@@ -1,0 +1,49 @@
+Files recieved had been through fastqc and Adaptor Removal.
+ 
+ Each sample had three files:
+ .fw.fastqc.gz = unmerged forward reads
+ .rw.fastqc.gz = unmerged reverse reads
+ .se.fastqc.gz = merged reads
+ 
+ # Use all three files when mapping.
+ 
+ # Build reference genome for mapping the reads
+ 
+ bowtie2-build STnPlref.fasta STnPlref.ref
+ 
+ # Mapping to reference
+ 
+ # -U stands for single end reads
+ # -p 16 use 16 processors
+ 
+ ls *.fw.fastq.gz | awk -F "." '{print$1}' | while read sample; do bowtie2 -x STnPlref.ref -1 $sample.fw.fastq.gz -2 $sample.rw.fastq.gz -U $sample.se.fastq.gz --no-unal --local -p 16 -S $sample.STnPlref.sam 1>$sample.STnPlref.bt2.log 2>$sample.STnPlref.bt2.err; done &
+ 
+ grep "overall" *.bt2.err
+ 
+ # SAM to BAM
+ # -b stands for bam output
+ # - @ 20 is for using 20 processors
+ 
+ls *.STnPlref.sam | awk -F "." '{print $1}'| while read name
+do samtools view -@ 20 -b -o $name.STnPlref.bam $name.STnPlref.sam
+done &
+
+# SAMTOOLS SORT
+ls *.STnPlref.sam| awk -F "." '{print $1}'| while read name
+do samtools sort -@ 20 -o $name.sorted.STnPlref.bam $name.STnPlref.bam
+done &
+
+# calculate the depth of nucleotides  
+# haven't used the rmdup (remove duplicates) files for this step - gives more meaningful depth (total of genes depth ~= backbone depth)
+# -a output all positions (including zero depth)
+# 0 depth is where no reads have aligned to a certain position in the reference genome
+
+ls *.STnPlref.sam | awk -F "." '{print $1}'|while read sample
+do samtools depth -a $sample.sorted.STnPlref.bam > $sample.depth
+done &
+
+# calculate gene depths using R: modify it into a loop etc
+/usr/bin/R
+data <- read.table("UniLIv01.depth", header = FALSE)
+mean_median <- c(aggregate(data$V3~data$V1, FUN="mean"), aggregate(data$V3~data$V1, FUN="median"))
+write.table(mean_median, file = "UniLiv01_freqs.txt", sep = "\t", row.names = FALSE)
