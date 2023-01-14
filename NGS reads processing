@@ -42,8 +42,31 @@ ls *.STnPlref.sam | awk -F "." '{print $1}'|while read sample
 do samtools depth -a $sample.sorted.STnPlref.bam > $sample.depth
 done &
 
-# calculate gene depths using R: modify it into a loop etc
-/usr/bin/R
-data <- read.table("UniLIv01.depth", header = FALSE)
-mean_median <- c(aggregate(data$V3~data$V1, FUN="mean"), aggregate(data$V3~data$V1, FUN="median"))
-write.table(mean_median, file = "UniLiv01_freqs.txt", sep = "\t", row.names = FALSE)
+# Notes for median gene depth calculations:
+
+# add header to the depth files generated from the bioinformatics pipeline
+# create a backup of the original depth files to be on the safe side
+
+ls Uni*.depth | awk -F "." '{print $1}'| while read sample;
+do echo -e "gene\tnumber\tdepth" | cat - $sample.depth > $sample.h.depth
+done &
+
+# Run the r script depth_cal.R to calculate the median depth of each gene, using the following command
+
+R-4.0 < depth_cal.R --save
+
+# csv outputs are generated with this script
+# remove underscores from filename using the following command
+
+for file in g*; do mv "$file" "${file//_/}"; done
+
+# distribution of reads
+
+# reads per fastq file
+for i in `ls Uni*.se.fastq.gz`; do echo $(zcat ${i} | wc -l)/4|bc; done
+
+#read average length per fastq file
+for i in `ls Uni*.fw.fastq.gz`; do echo $(zcat ${i} | awk '{if (NR%4==2) {count++; bases += length} } END{print bases/count}'); done
+
+# variance of reads per fastq file
+for i in `ls Uni*.fw.fastq.gz`; do echo $(zcat ${i} | awk 'BEGIN {t =0.0; sq =0.0; n =0;} ; NR%4==2 {n++; L = length($0); t += L; sq += L*L ;} END{m += t/n; print(sq/n-m*m);}'); done
