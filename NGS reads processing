@@ -1,9 +1,9 @@
 Files recieved had been through fastqc and Adaptor Removal.
  
  Each sample had three files:
- .fw.fastqc.gz = unmerged forward reads
- .rw.fastqc.gz = unmerged reverse reads
- .se.fastqc.gz = merged reads
+ .fw.fastqc.gz = unmerged forward reads (available in Barriers_to_HGT/raw_reads)
+ .rw.fastqc.gz = unmerged reverse reads (available in Barriers_to_HGT/raw_reads)
+ .se.fastqc.gz = merged reads (available at https://data.mendeley.com/datasets/44dtg2m6y9/1)
  
  # Use all three files when mapping.
  
